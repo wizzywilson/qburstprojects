@@ -6,6 +6,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style type="text/css">
+	#o{
+		position: absolute;
+		right:30px;
+	}
+</style>
+
 </head>
 <body>
 
@@ -24,7 +32,10 @@
     </div>
     <div class="col-sm-9" >
     	<div class="container" id="details" style="display: none;">
-			<form style="margin-left: 80px;margin-right: 80px;margin-top: 160px;">
+    	<div class="jumbotron" style="margin-top: 20px;">
+    		<h1 style="text-align: center;" >ENTER USER DETAILS</h1>
+    	</div>
+			<form style="margin-left: 80px;margin-right: 80px;margin-top: 60px;">
 
 			  <div class="form-group">
 			    <input type="text" class="form-control" name="name"  placeholder="Enter Name">
@@ -49,13 +60,18 @@
 			  <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myfunction()">SUBMIT</button>
 
 			</form>
-		</div>
+</div>
 		<div id="tabinfo" style="display: none;">
+		<div class="jumbotron" style="margin-top: 20px;">
+    		<h1 style="text-align: center;">INFORMATION TABLE</h1>
+    	</div>
   	
-  	<table>
-  		<tr><td>sdfsd</td></tr>
-  	</table>
-  </div>
+  	  						<div id="nextprev" style="margin-left: 10px; margin-bottom: 20px;"></div>
+
+							<div id="tabu" ></div>
+
+		</div>
+  		
     </div>
   </div>
 
@@ -72,15 +88,118 @@
 
 <script type="text/javascript">
 var tab = new tablee();
-inc=0;
-noofdelete=0;
+var inc=0;
+var noofdelete=0;
+var p=[];
+var page=0;
 
 function tablee()
-	{
+{
 		this.arr=[];
 
+		this.sort = function(){
+		var j=[];
+
+		for(i=0;i<=inc-1-noofdelete;i=i+5)
+		{
+    		j.push(this.arr.slice(i,i+5))
+		}
+
+		return j;
+
+		}
+this.display = function(tabrow){
+		d='<button  class="btn btn-primary" onclick="prev()">previous</button><button class="btn btn-primary" id="o" onclick="next()">Next</button>';
+		
+
+	
+	
+    
+   
 
 
+
+
+
+
+
+
+var text1='<table class="table table-light table-hover"><thead><tr><th>Click</th><th>Id</th><th onclick="tab.Namesort()">Name</th><th onclick="tab.DOBsort()">DOB</th><th>Email</th><th>Address</th></tr></thead><tbody>';
+t="";
+for(i=0;i<tabrow.length;i++)
+{
+	t=t+'<tr id='+tabrow[i].getid()+'><td><button class="btn btn-xs btn-danger" style=" padding-bottom: 0px; padding-top: 0px;" onclick="del('+tabrow[i].getid()+')">del</button></td><td>'+tabrow[i].getid()+'</td><td>'+tabrow[i].getname()+'</td><td>'+tabrow[i].getdob()+'</td><td>'+tabrow[i].getemail()+'</td><td>'+tabrow[i].getaddress()+'</td></tr>'
+	
+}
+    var text2='</tbody></table>';
+
+    var final=text1+t+text2;
+   
+
+    s=final;
+   
+    document.getElementById('nextprev').innerHTML=d;
+    document.getElementById('tabu').innerHTML=s;
+}
+
+
+this.Namesort = function(){
+
+		var byDate = this.arr.slice(0);
+		byDate.sort(function(a,b) {
+			    var x = a.getname().toLowerCase();             
+    			var y = b.getname().toLowerCase();
+    			return x < y ? -1 : x > y ? 1 : 0;
+			});
+		this.arr=byDate;
+		p=this.sort();
+			
+			this.display(p[p.length-1]);
+			
+			
+	}
+
+	
+		this.DOBsort = function(){
+		var byDate=this.arr.splice(0);
+
+			byDate.sort(function(a,b){
+				x=parseDate(a.getdob());
+				y=parseDate(b.getdob());
+				return x-y;
+
+			
+
+			});
+			this.arr=byDate;
+		p=this.sort();
+			
+			this.display(p[p.length-1]);
+		
+		}
+
+		function parseDate(str) {
+    var mdy = str.split('-');
+    return new Date(mdy[2], mdy[0]-1, mdy[1]);
+}
+
+
+
+	}
+
+		
+
+
+
+	function myfunction() 
+	{
+		var stud = new student(document.forms[0]);
+		if(stud.validatee()==1)
+		{
+				tab.arr.push(stud.getdetails(++inc));
+				p=tab.sort();
+				
+		}
 		
 	}
 
@@ -193,17 +312,56 @@ function student(form)
 				
 		document.getElementById('details').style.display='none';
 		document.getElementById('tabinfo').style.display='block';
+
+		tab.display(p[p.length-1]);
+		page=p.length-1;
+
 	}
 
-		function myfunction() 
-	{
-		var stud = new student(document.forms[0]);
-		if(stud.validatee()==1)
-		{
-				tab.arr.push(stud.getdetails(++inc));
+		function prev(){
+			if(page==0){
+				alert("Cant go back")
+			}
+			else
+			{
+			tab.display(p[page-1]);
+			page--;
 		}
-		
 	}
+
+	function next(){
+		if(page==p.length-1)
+		{
+			alert("There is no more page left")
+		}
+		else{
+
+		tab.display(p[page+1]);
+			page++;
+		}
+	}
+
+	function del(e){
+		document.getElementById(e).innerHTML="";
+
+		for(i=0;i<inc-noofdelete;i++){
+			if(tab.arr[i].getid()==e){
+				tab.arr.splice(i, 1);
+				noofdelete++;
+
+
+			}
+		}
+		tab.sort();
+	}
+
+	
+
+
+
+
+
+	
 </script>
 
 
