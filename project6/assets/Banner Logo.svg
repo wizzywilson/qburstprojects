@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="652px" height="292px" viewBox="0 0 652 292" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>Banner Logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="80.5699339%" x2="54.5607286%" y2="-15.542743%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.263586957" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-1.3%" y="-1.7%" width="102.6%" height="103.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="1" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="43.4346216%" y1="75.7127004%" x2="45.8535426%" y2="2.30072763%" id="linearGradient-3">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.41185462" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-3" transform="translate(-159.000000, -50.000000)">
+            <g id="Banner-Logo" transform="translate(152.000000, 18.000000)">
+                <path d="M49.0721213,129.830055 L280.281342,185.894034 L280.281342,292.910731 C280.281342,301.190091 273.732897,306.446653 265.633613,304.646843 L55.3840941,257.92552 L49.0721213,129.830055 Z" id="Shadow-Copy" fill="url(#linearGradient-1)" filter="url(#filter-2)" transform="translate(164.676732, 217.415028) rotate(-45.000000) translate(-164.676732, -217.415028) "></path>
+                <g id="LOGO" transform="translate(0.000000, 0.738296)">
+                    <g id="Letter">
+                        <path d="M53.4427974,199.457544 C45.157556,199.457544 38.4410408,192.744159 38.4410408,184.467279 L49.5882132,69.9786532 C49.5882132,61.6997586 56.302372,54.9883884 64.5899698,54.9883884 L177.395322,29.7124564 C185.680563,29.7124564 192.397079,36.4258411 192.397079,44.7027213" id="Rectangle-2" fill="#2AA68A" transform="translate(115.419060, 114.585000) rotate(48.000000) translate(-115.419060, -114.585000) "></path>
+                        <path d="M115.5,237 L23.1047211,237 L22.0006635,237 C13.7160258,237 7,230.27772 7,221.994688 L7,114 L115.5,179" id="Rectangle-1-Copy" fill="#8DF0DA"></path>
+                        <path d="M224,114 L224,221.994688 C224,230.281893 217.287181,237 209.00022,237 L22.0009055,237 L21.990033,237" id="Rectangle-1" fill="#50E3C2"></path>
+                        <polygon id="Rectangle-1" fill="#30B194" points="7 114 224 114 115.5 180"></polygon>
+                    </g>
+                    <g id="TIck" transform="translate(73.000000, 46.000000)">
+                        <path d="M48.0838682,51.4263982 L141.8935,51.4263982 L149.364431,97.2096497 C150.698351,105.384159 145.271949,110.314923 137.260113,108.22696 L49.3008145,85.3039044 L48.0838682,51.4263982 Z" id="Shadow" fill="url(#linearGradient-3)" transform="translate(98.824953, 80.066223) rotate(-45.000000) translate(-98.824953, -80.066223) "></path>
+                        <path d="M43.1819805,68.0398449 L111.110913,0.110912703 L125.253048,14.2530483 L43.1421356,96.363961 L29,82.2218254 L29.0398449,82.1819805 L0.707106781,53.8492424 L14.8492424,39.7071068 L43.1819805,68.0398449 Z" id="Tick" fill="#D8D8D8"></path>
+                    </g>
+                </g>
+                <text id="Inbox" font-family="Roboto-Light, Roboto" font-size="178" font-weight="300" line-spacing="178" letter-spacing="-6" fill="#000000">
+                    <tspan x="257" y="224.738296">Inbo</tspan>
+                    <tspan x="576.484375" y="224.738296">x</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

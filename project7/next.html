@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>nextpage</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<div  style="width: 95%;">
+  <div class="row">
+    <div class="col-sm-3" style="background-color: #C1C1C1; min-height: 665px;">
+    	<button type="button" class="btn btn-lg btn-primary btn-block " style="margin-top: 220px; margin-left: 5px;" onclick="addform();" >Form</button>
+  		<button type="button" class="btn btn-lg btn-primary btn-block"  style="margin-top: 100px; margin-left: 5px;" onclick="list();">List</button>
+    </div>
+    <div class="col-sm-9" >
+    	<div class="container" id="details" style="display: none;">
+			<form style="margin-left: 80px;margin-right: 80px;margin-top: 160px;">
+
+			  <div class="form-group">
+			    <input type="text" class="form-control" name="name"  placeholder="Enter Name">
+			    <small  class="form-text text-muted" style="height: 19px;"></small>
+			  </div>
+
+			  <div class="form-group">
+			    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Email">
+			    <small  class="form-text text-muted" style="height: 19px;"></small>
+			  </div>
+
+			   <div class="form-group">
+			    <input type="date" class="form-control" name="dob" placeholder="DOB">
+			    <small  class="form-text text-muted" style="height: 19px;"></small>
+			  </div>
+
+			   <div class="form-group">
+			    <input type="text" class="form-control" name="address" placeholder="Address">
+			    <small  class="form-text text-muted" style="height: 19px;"></small>
+			  </div>
+			  
+			  <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myfunction()">SUBMIT</button>
+
+			</form>
+		</div>
+		<div id="tabinfo" style="display: none;">
+  	
+  	<table>
+  		<tr><td>sdfsd</td></tr>
+  	</table>
+  </div>
+    </div>
+  </div>
+
+
+  
+
+ 
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+var tab = new tablee();
+inc=0;
+noofdelete=0;
+
+function tablee()
+	{
+		this.arr=[];
+
+
+
+		
+	}
+
+function student(form)
+	{
+		var id;
+		var name=form["name"].value;
+		var email=form["email"].value;
+		var dob=form["dob"].value;
+		var address=form["address"].value;
+
+		this.validatee = function()
+		{
+			
+			var flag=0;
+			
+			if (name=="")
+	  		{ 
+	  			document.getElementsByTagName("small")[0].innerHTML="Name field is Empty";
+	  			flag=1;
+	  		}
+	  		else if (name.length <3)
+	  		{
+				document.getElementsByTagName("small")[0].innerHTML=" Enter a Name with more than 3 charecters";
+				flag=1;
+	  		}
+	  		else{
+	  			document.getElementsByTagName("small")[0].innerHTML="";
+	  		}
+
+	  		if (dob=="")
+	  		{ 
+	  			document.getElementsByTagName("small")[2].innerHTML="DOB field is Empty";
+	  			flag=1;
+	  		}
+	  		else{
+	  			document.getElementsByTagName("small")[2].innerHTML="";
+	  		}
+
+	  		if (email=="") 
+	  		{ 
+	  			document.getElementsByTagName("small")[1].innerHTML="Email field is Empty";
+	  		}
+	  		else if(email.search('@')<0 && email.search('.com')<0)
+	  		{
+	  			
+	  				document.getElementsByTagName("small")[1].innerHTML="Enter a valid email";
+	  				flag=1;
+	  		}
+	  		else{
+	  			document.getElementsByTagName("small")[1].innerHTML="";
+	  		}
+
+	  		if (address=="") 
+	  		{ 
+	  				document.getElementsByTagName("small")[3].innerHTML="Address field is Empty";
+	  				flag=1;
+
+	  		}
+	  		else{
+	  			document.getElementsByTagName("small")[3].innerHTML="";
+	  		}
+
+
+	  		if(flag==0){
+	  			return 1;
+	  		}
+	  		else{
+	  				return 0;
+	  		}
+
+		}
+
+		this.getdetails =function(roll){
+				id=roll;
+				return this;
+		}
+
+		this.getname =function(){
+			return name;
+		}
+
+		this.getid =function(){
+			return id;
+		}
+
+		this.getdob =function(){
+			return dob;
+		}
+
+		this.getemail =function(){
+			return email;
+		}
+
+		this.getaddress =function(){
+			return address;
+		}
+		
+	}
+
+
+
+
+	function addform() {
+		document.getElementById('tabinfo').style.display='none';
+		document.getElementById('details').style.display='block';
+	}
+
+	function list() {
+				
+		document.getElementById('details').style.display='none';
+		document.getElementById('tabinfo').style.display='block';
+	}
+
+		function myfunction() 
+	{
+		var stud = new student(document.forms[0]);
+		if(stud.validatee()==1)
+		{
+				tab.arr.push(stud.getdetails(++inc));
+		}
+		
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validation</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+		
+		</script>
+
+</head>
+<body>
+
+	<div class="container" style="width: 40%; position: absolute; top: 25%; right:30%; "> 
+		<form>
+			  <div class="form-group">
+			    <input type="text" class="form-control" placeholder="Name" id="Name">
+			  </div>
+			  <div class="form-group">
+			    <input type="text" class="form-control" placeholder="Date of Birth ex:(dd/mm/yyyy)" id="DOB">
+
+			  </div>
+			  <div class="form-group">
+			    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" id="email">
+			  </div>
+			  <div class="form-group">
+			    <input type="number" class="form-control"  placeholder="Age" id="age">
+			  </div>
+			  <div class="form-group">
+			    <input type="text" class="form-control"  placeholder="Address" id="Address">
+			  </div>
+
+		  	  <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction()">SUBMIT</button>
+
+		</form>
+	</div>
+	
+
+	<div id="alert"></div>
+
+	<div class="alert alert-success" style="display: none;" id='success1'>
+	  <strong>Success!</strong> Indicates a successful or positive action.
+	</div>
+
+
+
+	<div class="container" style="position:relative; top: 600px; display: none" id="tablecontainer">
+	  <h2 style="text-align: center;">Collected Data</h2>
+	           
+	  <table class="table table-dark table-hover" >
+		    <thead >
+			      <tr>
+			       		<th>Id</th>
+				        <th>Name</th>
+				        <th>DOB</th>
+				        <th>Email</th>
+				        <th>Age</th>
+				        <th>Address</th>
+
+			      </tr>
+		    </thead>
+		    <tbody id="myTable" >
+
+		    </tbody>
+	  </table>
+
+
+
+
+	<script type="text/javascript">
+		
+		
+
+
+		
+		
+	</script>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

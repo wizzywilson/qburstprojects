@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<style type="text/css">
+		body{
+			background-color:#fFFDD0;
+		}
+
+
+		h2{
+			text-align: center;
+			color: grey;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			margin-bottom: 30px;
+		}
+		header{
+
+			display: flex;
+			justify-content: center;
+		}
+		
+	
+
+		a{
+			text-align: center;
+		}
+		
+		.flexclass{
+			display: flex;
+			flex-direction : row;
+			<!--flex-wrap:wrap;-->
+
+		}
+		
+		.division{
+			background-color:white;
+			padding: 20px;
+			border: 2px solid orange;
+			width:44.5%;
+			
+			border-radius:5px;
+			margin: 0px 1px 0px 1px;
+			
+		}
+		h3{
+			font-style:italic;
+			margin: 2px 0px 2px 0px;
+		}
+		.inputspec{
+			border-radius:3px;
+			font-style:italic;
+			width:65%;
+			height:22px;
+			float:right;
+		}
+		
+		.labelspec{
+			font-size:18px;
+			font-style:italic;
+			font-family:arial;
+
+		
+		}
+	
+		
+		table,th,td{
+			border: 2px solid black;
+			border-collapse:collapse;
+
+			
+		}
+		table{
+			width:100%;
+			text-align:center;
+
+    margin-bottom: 20px;
+
+		}
+		th,td{
+			height:40px;
+		}
+
+		.expand {
+			    width: 50%;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    border: 1px solid black;
+		}
+               
+        .dim{
+
+        	
+        }     
+		
+
+	</style>
+	<script>
+function fun1() {
+	p=document.getElementById("vv").innerHTML;
+	{
+		if(p=="Read Less")
+			{
+					document.getElementById("y").style.whiteSpace ="nowrap";
+	document.getElementById("y").style.overflow ="hidden";
+	document.getElementById("vv").innerHTML = "Read More";
+			}
+
+			else{
+	document.getElementById("y").style.whiteSpace ="normal";
+	document.getElementById("y").style.overflow ="visible";
+	document.getElementById("vv").innerHTML = "Read Less";
+}
+}
+}
+
+function fun2() {
+	p=document.getElementById("vv2").innerHTML;
+	{
+		if(p=="Read Less")
+			{
+					document.getElementById("t").style.whiteSpace ="nowrap";
+	document.getElementById("t").style.overflow ="hidden";
+	document.getElementById("vv2").innerHTML = "Read More";
+			}
+
+			else{
+	document.getElementById("t").style.whiteSpace ="normal";
+	document.getElementById("t").style.overflow ="visible";
+	document.getElementById("vv2").innerHTML = "Read Less";
+}
+}
+}
+
+
+
+	
+
+    
+
+</script>
+
+
+</head>
+<body>
+
+	<header>
+
+			<a href="https://www.google.com">
+				<img style="width: 20%" src="http://pluspng.com/img-png/animal-logo-png-lion-king-icon-logo-animal-pride-wild-head-532.png">
+			</a>
+	</header>
+
+	<section>
+		<h2>Find the fighter in you.</h2>
+
+	</section>
+	<section class='flexclass' style="background-color:#fFFDD0;">
+		<article class='division'>
+			<form>
+			<div id="g">
+				<span  class="labelspec">Name </span>
+				
+				
+					<input style="width:100%; margin-bottom: 9px;"type='text' name='name' class='inputspec'>
+					<br>
+					<br>
+					<span   class="labelspec">Email </span>                                   
+					<input type='email' name='email' class='inputspec'>
+					<br>
+					<br>
+					<span   class="labelspec">Phone </span>
+					<input type='phone' name='phone' class='inputspec'>
+					<br>
+					<br>
+					<span   class="labelspec">Password </span>
+					<input type='password' name='pass' class='inputspec'>
+					<br>
+					<br>
+					<span  class="labelspec">Confirm Password </span>
+					<input type='password' name='pass2' class='inputspec'>
+					</div>
+					<div style=" margin-bottom: 20px;">
+					<br>
+					<br>
+					<br>
+					<span  class="labelspec">Female  </span>
+					<input type='radio' name='pass2' >
+					<span  class="labelspec">Male  </span>
+					<input type='radio' name='pass2' >	
+					<br>
+					<br>
+					</div>
+					<div>
+				
+					<input type='checkbox' name='pass2' checked >
+					<span  class="labelspec">Text 1  </span>
+					<br>
+					<br>
+					<input type='checkbox' name='pass2' >
+					<span  class="labelspec">Text 2  </span>
+					<br>
+					<br>
+					<input type='checkbox' name='pass2' >
+					<span  class="labelspec">Text 3  </span>
+					<br>
+					<br>
+					<textarea rows='15' cols='50'>
+					</textarea>
+					<br>
+					<input type='Submit' name='pass2' id='o' style="float:right">			
+				</div>
+			</form>
+		</article>
+		<article class='division' style="border: 0;background-color:#fFFDD0;">
+			<section style="width: 92%; margin-bottom: 20px;" class="division">
+				<table >
+					<tr>
+						<th>Name</th>
+						<th>title</th>
+					</tr>
+					<tr>
+						<td>wilson</td>
+						<td> harry </td>  
+					</tr>
+					<tr>
+						<td> David </td>
+						<td> Lion </td>
+					</tr>
+				</table>
+				<hr>
+				<section class="flexclass" >
+					<article style="border-right-style: solid;border-right-color: black;width: 60%; ">
+						<ul style=" margin-left: 35%">
+							<li> harry</li>
+							<li>Potter</li>
+							<li>Randy</li>
+						</ul>
+					</article>
+					<article style="width: 49%;">
+						<ol style=" margin-left: 35%" >
+							<li> harry</li>
+							<li>Potter</li>
+							<li>Randy</li>
+						</ol>
+					</article>
+				</section>
+			</section>
+			<section style="width: 92%; margin-bottom: 20px;" class="division" >
+			<section style="background-image: url('http://www.kinyu-z.net/data/wallpapers/250/1578612.jpg'); width: 100%; height: 400px;">
+				
+			</section>
+			<section class='flexclass'>
+				<div id='y' class="expand" style="
+    margin-top: 8px;
+    margin-right: 8px;border-color: white;
+">
+					
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+					
+				</div>
+
+				
+				<div id='t' class="expand" style="
+    margin-top: 8px ;border-color: white;
+" >
+						
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+				       
+			
+				</div>
+				
+				
+				
+			</section>
+			<section class="flexclass">
+				<div style="width: 50%">
+					<button style="border-radius:5px;" onclick="fun1()" id='vv' ;>Read More</button>
+				</div>
+				<div style="width: 50%; 
+    margin-left: 6px;
+"><button style="border-radius:5px;" onclick="fun2()" id='vv2' ;>Read More</button></div>
+				
+			</section>
+			</section>
+			
+				
+				
+			
+
+			<section class="flexclass" >
+					<article class="division"  style="width: 270px;height: 150px; margin-bottom: 6px;margin-right: 6px;">
+						Content
+					</article>
+					<article class="division"  style="width: 49%; margin-bottom: 6px;">
+						Content
+					</article>
+				</section>
+				<section class="flexclass" >
+					<article class="division"  style="width: 270px;height: 150px; margin-right: 8px;">
+						Content
+					</article>
+					<article class="division"  style="width: 49%;">
+						Content
+					</article>
+				</section>
+			
+			
+		</article >
+		<article  >
+			<img id='help' src="assets/q.jpg" alt="Smiley face" style="width:47px;  border-radius: 50%; position: fixed; top: 600px;" class='flexclass' >
+	</article>
+
+	</section>
+
+	
+
+
+	<footer style="text-align: center; text-transform:">
+		<hr>
+		<b>&copy; 2018 copyright.</b>
+		<hr>
+	</footer>
+	
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>validate part2</title>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<style type="text/css">
+			
+			.fform{
+
+    margin-top: 80px;
+
+				width: 50%;
+			}
+
+			#tabu{
+					width: 100%;
+					height: 350px;
+			}
+
+			#o{
+
+				position: absolute;
+				right: 15px;
+			}
+
+			
+		</style>
+</head>
+<body>
+		<div class="container fform" style="
+    margin-bottom: 40px;">
+			<form>
+
+			  <div class="form-group">
+			    <input type="text" class="form-control" name="name"  placeholder="Enter Name">
+			    <small  class="form-text text-muted" style="height: 19px;"></small>
+			  </div>
+
+			  <div class="form-group">
+			    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Email">
+			    <small  class="form-text text-muted" style="height: 19px;"></small>
+			  </div>
+
+			   <div class="form-group">
+			    <input type="date" class="form-control" name="dob" placeholder="DOB">
+			    <small  class="form-text text-muted" style="height: 19px;"></small>
+			  </div>
+
+			   <div class="form-group">
+			    <input type="text" class="form-control" name="address" placeholder="Address">
+			    <small  class="form-text text-muted" style="height: 19px;"></small>
+			  </div>
+			  
+			  <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myfunction()">SUBMIT</button>
+
+			</form>
+		</div>
+		<div id="nextprev" style="margin-left: 10px; 
+    margin-bottom: 20px;
+">
+			
+			
+		</div>
+
+		<div id="tabu" >
+			
+			
+		</div>
+</body>
+
+
+
+<script type="text/javascript">
+
+var tab = new tablee();
+inc=0;
+noofdelete=0;
+
+
+	function student(form)
+	{
+		var id;
+		var name=form["name"].value;
+		var email=form["email"].value;
+		var dob=form["dob"].value;
+		var address=form["address"].value;
+
+		this.validatee = function()
+		{
+			
+			var flag=0;
+			
+			if (name=="")
+	  		{ 
+	  			document.getElementsByTagName("small")[0].innerHTML="Name field is Empty";
+	  			flag=1;
+	  		}
+	  		else if (name.length <3)
+	  		{
+				document.getElementsByTagName("small")[0].innerHTML=" Enter a Name with more than 3 charecters";
+				flag=1;
+	  		}
+	  		else{
+	  			document.getElementsByTagName("small")[0].innerHTML="";
+	  		}
+
+	  		if (dob=="")
+	  		{ 
+	  			document.getElementsByTagName("small")[2].innerHTML="DOB field is Empty";
+	  			flag=1;
+	  		}
+	  		else{
+	  			document.getElementsByTagName("small")[2].innerHTML="";
+	  		}
+
+	  		if (email=="") 
+	  		{ 
+	  			document.getElementsByTagName("small")[1].innerHTML="Email field is Empty";
+	  		}
+	  		else if(email.search('@')<0 && email.search('.com')<0)
+	  		{
+	  			
+	  				document.getElementsByTagName("small")[1].innerHTML="Enter a valid email";
+	  				flag=1;
+	  		}
+	  		else{
+	  			document.getElementsByTagName("small")[1].innerHTML="";
+	  		}
+
+	  		if (address=="") 
+	  		{ 
+	  				document.getElementsByTagName("small")[3].innerHTML="Address field is Empty";
+	  				flag=1;
+
+	  		}
+	  		else{
+	  			document.getElementsByTagName("small")[3].innerHTML="";
+	  		}
+
+
+	  		if(flag==0){
+	  			return 1;
+	  		}
+	  		else{
+	  				return 0;
+	  		}
+
+		}
+
+		this.getdetails =function(roll){
+				// var details=[];
+				// details.push(inc);
+				// details.push(name);
+				// details.push(dob);
+				// details.push(email);
+				// details.push(address);
+				id=roll;
+				return this;
+		}
+
+		this.getname =function(){
+			return name;
+		}
+
+		this.getid =function(){
+			return id;
+		}
+
+		this.getdob =function(){
+			return dob;
+		}
+
+		this.getemail =function(){
+			return email;
+		}
+
+		this.getaddress =function(){
+			return address;
+		}
+		
+	}
+
+	function tablee()
+	{
+		this.arr=[];
+
+
+
+		
+	}
+
+	function display(tabrow)
+	{
+		d='<button  class="btn btn-primary" onclick="prev()">previous</button><button class="btn btn-primary" id="o" onclick="next()">Next</button>';
+		
+
+	
+	
+
+
+
+
+
+
+
+var text1='<table class="table table-light table-hover"><thead><tr><th>Click</th><th>Id</th><th><button onclick="Namesort()"style="background:transparent;">Name</button></th><th><button onclick="DOBsort()"style="background:transparent;">DOB</button></th><th>Email</th><th>Address</th></tr></thead><tbody>';
+t="";
+for(i=0;i<tabrow.length;i++)
+{
+	t=t+'<tr id='+tabrow[i].getid()+'><td><button onclick="del('+tabrow[i].getid()+')">del</button></td><td>'+tabrow[i].getid()+'</td><td>'+tabrow[i].getname()+'</td><td>'+tabrow[i].getdob()+'</td><td>'+tabrow[i].getemail()+'</td><td>'+tabrow[i].getaddress()+'</td></tr>'
+	console.log(typeof(tabrow[i]));
+}
+    var text2='</tbody></table>';
+
+    var final=text1+t+text2;
+   
+
+    s=final;
+   
+    document.getElementById('nextprev').innerHTML=d;
+    document.getElementById('tabu').innerHTML=s;
+}
+
+
+
+
+
+
+
+
+
+ var currentTime = new Date();
+
+
+
+
+
+
+	function myfunction() 
+	{
+		var stud = new student(document.forms[0]);
+		if(stud.validatee()==1)
+		{
+			
+			tab.arr.push(stud.getdetails(++inc));
+			
+			p=sortt();
+			
+			display(p[p.length-1]);
+			 page=p.length-1;
+			 if(p[p.length-1].length==0){
+			 	display(p[p.length-2]);
+			 	page=p.length-2;
+			 }
+
+		}
+		
+	}
+
+	function sortt(){
+		var j=[];
+
+		for(i=0;i<=inc-1-noofdelete;i=i+5)
+		{
+    		j.push(tab.arr.slice(i,i+5))
+		}
+
+		return j;
+
+	}
+
+	function prev(){
+			display(p[page-1]);
+			page--;
+	}
+
+	function next(){
+		display(p[page+1]);
+			page++;
+	}
+
+	function del(e){
+		document.getElementById(e).innerHTML="";
+
+		for(i=0;i<inc-noofdelete;i++){
+			if(tab.arr[i].getid()==e){
+				tab.arr.splice(i, 1);
+				noofdelete++;
+
+			}
+		}
+	}
+
+
+	function Namesort(){
+		var byDate = tab.arr.slice(0);
+		byDate.sort(function(a,b) {
+			    var x = a.getname().toLowerCase();
+    			var y = b.getname().toLowerCase();
+    			return x < y ? -1 : x > y ? 1 : 0;
+			});
+		tab.arr=byDate;
+		p=sortt();
+			
+			display(p[p.length-1]);
+			
+			
+	}
+
+		function Namesort(){
+		var byDate = tab.arr.slice(0);
+		byDate.sort(function(a,b) {
+			    var x = a.getname().toLowerCase();
+    			var y = b.getname().toLowerCase();
+    			return x < y ? -1 : x > y ? 1 : 0;
+			});
+		tab.arr=byDate;
+		p=sortt();
+			
+			display(p[p.length-1]);
+			
+			
+	}
+
+	function DOBsort(){
+		var byDate=tab.arr.splice(0);
+
+			byDate.sort(function(a,b){
+				x=parseDate(a.getdob());
+				y=parseDate(b.getdob());
+				return x-y;
+
+			
+
+			});
+			tab.arr=byDate;
+		p=sortt();
+			
+			display(p[p.length-1]);
+		
+		}
+	
+
+	function parseDate(str) {
+    var mdy = str.split('-');
+    return new Date(mdy[2], mdy[0]-1, mdy[1]);
+}
+  
+
+
+
+</script>
+</html>
+
+
+

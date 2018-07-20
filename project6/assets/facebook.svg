@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>facebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="a" transform="translate(-26.000000, -27.000000)" fill="#9B9B9B">
+            <g id="facebook" transform="translate(26.000000, 27.000000)">
+                <path d="M18.225,0 L2.025,0 C0.91125,0 0,0.91125 0,2.025 L0,18.225 C0,19.33875 0.91125,20.25 2.025,20.25 L18.225,20.25 C19.33875,20.25 20.25,19.33875 20.25,18.225 L20.25,2.025 C20.25,0.91125 19.33875,0 18.225,0 L18.225,0 Z M17.2125,2.025 L17.2125,5.0625 L15.1875,5.0625 C14.58,5.0625 14.175,5.4675 14.175,6.075 L14.175,8.1 L17.2125,8.1 L17.2125,11.1375 L14.175,11.1375 L14.175,18.225 L11.1375,18.225 L11.1375,11.1375 L9.1125,11.1375 L9.1125,8.1 L11.1375,8.1 L11.1375,5.56875 C11.1375,3.645 12.7575,2.025 14.68125,2.025 L17.2125,2.025 L17.2125,2.025 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
