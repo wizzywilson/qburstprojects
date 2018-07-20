@@ -309,12 +309,16 @@ function student(form)
 	}
 
 	function list() {
-				
+				if(tab.arr.length==0){
+					alert('No Data')
+				}
+				else{
 		document.getElementById('details').style.display='none';
 		document.getElementById('tabinfo').style.display='block';
 
 		tab.display(p[p.length-1]);
 		page=p.length-1;
+	}
 
 	}
 
