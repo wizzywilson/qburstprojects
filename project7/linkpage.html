@@ -28,13 +28,15 @@
 		<script type="text/javascript">
 		
 			function compare() {
+				window.location.replace = "next2.html";
 				p=document.forms[0]['email'].value;
 				q=document.forms[0]['password'].value;
 				if(p==q)
 				{
-					var opened = window.open("");
-					opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
-
+					console.log('dddd')
+					console.log(p,q);
+					window.location.href = "next2.html";
+				
 				}
 				
 				}
