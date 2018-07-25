@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax calls</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<style type="text/css">
+	#o{
+				position: absolute;
+				right:30px;
+			}
+
+</style>
+
+
+
+</head>
+<body>
+					<div class="jumbotron" style="margin-top: 20px;">
+					    		<h1 style="text-align: center;">INFORMATION TABLE</h1>
+					    	</div>	
+				  	
+				  	  		<div id="nextprev" style="margin-left: 10px; margin-bottom: 20px;"></div>
+
+							<div id="tabu" ></div>
+</body>
+
+<script type="text/javascript">
+
+var tab = new tablee();
+		var locstore =new tablee();
+		var inc=0;
+		var incloc=0;
+		var noofdelete=0;
+		var p=[];
+		var page=0;
+		var z=[];
+		var tablearray=[];
+		tablearray.push(tab);
+		tablearray.push(locstore);
+
+		$(document).ready(function(){
+
+			$.ajax({
+				url:"http://dummy.restapiexample.com/api/v1/employees",
+				dataType:"json",
+				async:true,
+				method:'GET',
+				success: function(data,textstatus,jqXHR){
+						console.log(textstatus);
+						myfunction(data);
+				},
+				error:function(jqXHR,textstatus,errorThrown){
+						console.log(textstatus);
+						console.log(errorThrown);
+				},
+			});
+
+		});
+
+
+
+
+		function tablee()
+		{
+				this.arr=[];
+				this.increment=0;
+				this.sort = function()
+				{
+						var j=[];
+
+						for(i=0;i<=this.increment-1-noofdelete;i=i+5)
+						{
+				    		j.push(this.arr.slice(i,i+5))
+						}
+
+						return j;
+
+
+				}
+				this.display = function(tabrow,index)
+				{
+
+					console.log(tabrow,index)
+
+						d='<button  class="btn btn-primary" onclick="tablearray['+index+'].prev('+index+')">previous</button><button class="btn btn-primary" id="o" onclick="tablearray['+index+'].next('+index+')">Next</button>';
+
+						var text1='<table class="table table-light table-hover"><thead><tr><th>Click</th><th>Id</th><th onclick="tablearray['+index+'].Namesort('+index+')">Name</th><th onclick="tablearray['+index+'].DOBsort('+index+')">Salary</th><th>Age</th></tr></thead><tbody>';
+
+						t="";
+
+						for(i=0;i<tabrow.length;i++)
+						{
+							t=t+'<tr onclick="Display('+tabrow[i][0]+')" id='+tabrow[i][0]+'><td><button class="btn btn-xs btn-danger" style=" padding-bottom: 0px; padding-top: 0px;" onclick="tablearray['+index+'].del('+tabrow[i][0]+')">del</button></td><td>'+tabrow[i][0]+'</td><td>'+tabrow[i][1]+'</td><td>'+tabrow[i][2]+'</td><td>'+tabrow[i][3]+'</td></tr>'
+							
+						}
+
+				    	var text2='</tbody></table>';
+
+				    	var final=text1+t+text2;
+				   
+
+				    	s=final;
+				   
+				    	document.getElementById('nextprev').innerHTML=d;
+				    	document.getElementById('tabu').innerHTML=s;
+				}
+
+
+				this.Namesort = function(index)
+				{
+						var byDate = this.arr.slice(0);
+						byDate.sort(function(a,b) 
+						{
+					    	var x = a[1].toLowerCase();             
+		    				var y = b[1].toLowerCase();
+		    				return x < y ? -1 : x > y ? 1 : 0;
+						});
+						this.arr=byDate;
+						p=this.sort();
+					
+						this.display(p[p.length-1],index);	
+				}
+
+			
+				this.DOBsort = function(index)
+				{
+						var byDate=this.arr.splice(0);
+						byDate.sort(function(a,b)
+						{
+							x=a[2];
+							y=b[2];
+							return x-y;
+						});
+						this.arr=byDate;
+						p=this.sort();
+						this.display(p[p.length-1],index);
+				
+				}
+
+				function parseDate(str) 
+				{
+					    var mdy = str.split('-');
+					    return new Date(mdy[2], mdy[0]-1, mdy[1]);
+				}
+
+
+		 		this.prev=function(index)
+		 		{
+					if(page==0)
+					{
+						alert("Cant go back")
+					}
+					else
+					{
+						tablearray[index].display(p[page-1],index);
+						page--;
+					}
+				}
+
+				this.next=function(index)
+				{
+					if(page==p.length-1)
+					{
+						alert("There is no more page left")
+					}
+					else
+					{
+						tablearray[index].display(p[page+1],index);
+						page++;
+					}
+				}
+
+
+				this.del=function(e)
+				{
+					document.getElementById(e).innerHTML="";
+
+					for(i=0;i<this.increment-noofdelete;i++)
+					{
+						if(this.arr[i][0]==e)
+						{
+							this.arr.splice(i, 1);
+							noofdelete++;
+						}
+					}
+
+					p=this.sort();
+				}
+   		}
+
+   		function myfunction(data) 
+		{
+			
+			$.each(data,function(){ 
+				tab.arr.push([this.id,this.employee_name,this.employee_salary,this.employee_age]);
+
+			});
+
+				tab.increment=data.length;
+				p=tab.sort();
+				tab.display(p[p.length-1],0);
+				page=p.length-1;
+		}
+
+		function Display(num){
+				
+
+
+
+				$.ajax({
+				url:"http://dummy.restapiexample.com/api/v1/employee/"+num,
+				dataType:"json",
+				async:true,
+				method:'GET',
+				success: function(data,textstatus,jqXHR){
+						console.log(textstatus);
+						alert("id: "+data.id+"\n employee_name: "+data.employee_name+"\nemployee_salary: "+data.employee_salary+"\nemployee_age: "+data.employee_age);
+				},
+				error:function(jqXHR,textstatus,errorThrown){
+						console.log(textstatus);
+						console.log(errorThrown);
+				},
+			});
+		}
+
+
+
+</script>
+</html>
