@@ -1,0 +1,40 @@
+body{
+	background-color: #F6F8FB;
+}
+
+#question{
+	margin-top: 100px;
+	margin-bottom: 50px;
+	text-align: center;
+
+	
+}
+#mcq{
+	width:60%;
+
+}
+
+
+li:nth-child(odd) {
+    background: white;
+}
+
+li:nth-child(even) {
+    background: transparent;
+}
+
+ul > li {
+    opacity: 1.0;
+    padding-top: 20px !important;
+	padding-bottom: 20px !important;
+}
+
+ul:hover > li:not(:hover) {
+    opacity: 0.5;
+}
+
+button{
+	margin-top: 20px;
+	
+}
+
